@@ -1,81 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Scientific Calculator</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b7dda">
-  <link rel="icon" href="icon-192.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Calculator</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0d6efd" />
+  <link rel="icon" href="icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <button id="theme-toggle" onclick="toggleTheme()">🌙 Toggle Dark Mode</button>
-  <button id="angle-toggle" onclick="toggleAngle()">📐 Mode: Degrees</button>
-
   <div class="calculator">
-    <input type="text" id="display" disabled>
-    <button id="copy-btn" onclick="copyToClipboard()">📋 Copy Result</button>
-
+    <input type="text" id="display" disabled />
     <div class="buttons">
       <button onclick="clearDisplay()">C</button>
-      <button onclick="clearEntry()">CE</button>
-      <button onclick="deleteLast()">DEL</button>
-      <button onclick="appendValue('/')">/</button>
-
-      <button onclick="appendValue('7')">7</button>
-      <button onclick="appendValue('8')">8</button>
-      <button onclick="appendValue('9')">9</button>
-      <button onclick="appendValue('*')">*</button>
-
-      <button onclick="appendValue('4')">4</button>
-      <button onclick="appendValue('5')">5</button>
-      <button onclick="appendValue('6')">6</button>
-      <button onclick="appendValue('-')">-</button>
-
-      <button onclick="appendValue('1')">1</button>
-      <button onclick="appendValue('2')">2</button>
-      <button onclick="appendValue('3')">3</button>
-      <button onclick="appendValue('+')">+</button>
-
-      <button onclick="appendValue('0')">0</button>
-      <button onclick="appendValue('.')">.</button>
-      <button onclick="toggleSign()">±</button>
+      <button onclick="deleteLast()">←</button>
+      <button onclick="appendOperator('%')">%</button>
+      <button onclick="appendOperator('/')">/</button>
+      <button onclick="appendNumber('7')">7</button>
+      <button onclick="appendNumber('8')">8</button>
+      <button onclick="appendNumber('9')">9</button>
+      <button onclick="appendOperator('*')">x</button>
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button onclick="appendOperator('-')">-</button>
+      <button onclick="appendNumber('1')">1</button>
+      <button onclick="appendNumber('2')">2</button>
+      <button onclick="appendNumber('3')">3</button>
+      <button onclick="appendOperator('+')">+</button>
+      <button onclick="appendNumber('0')">0</button>
+      <button onclick="appendNumber('.')">.</button>
       <button onclick="calculate()">=</button>
-
-      <button onclick="appendValue('(')">(</button>
-      <button onclick="appendValue(')')">)</button>
-      <button onclick="appendValue('%')">%</button>
-      <button onclick="appendValue('**')">^</button>
-
-      <button onclick="sqrt()">√</button>
-      <button onclick="insertConstant('pi')">π</button>
-      <button onclick="insertConstant('e')">e</button>
-      <button onclick="square()">x²</button>
-
-      <button onclick="cube()">x³</button>
-      <button onclick="applyFunc('sin')">sin</button>
-      <button onclick="applyFunc('cos')">cos</button>
-      <button onclick="applyFunc('tan')">tan</button>
-
-      <button onclick="applyFunc('log')">log</button>
-      <button onclick="applyFunc('ln')">ln</button>
     </div>
   </div>
 
-  <div class="history">
-    <h3>History</h3>
-    <button onclick="clearHistory()" id="clear-history">🧹 Clear History</button>
-    <ul id="history-list"></ul>
-  </div>
-
-  <div id="toast"></div>
-
   <script src="script.js"></script>
   <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js")
-        .then(() => console.log("Service Worker registered"));
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('Service Worker registered ✅'))
+        .catch(err => console.error('Service Worker failed:', err));
     }
   </script>
 </body>
