@@ -1,0 +1,82 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  color: #333;
+}
+
+body.dark {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+.calculator {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+input#display {
+  width: 100%;
+  padding: 15px;
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.buttons button {
+  width: 22%;
+  padding: 15px;
+  margin: 2px;
+  font-size: 18px;
+}
+
+#copy-btn,
+#theme-toggle,
+#angle-toggle {
+  margin: 10px 5px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.history {
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.history li {
+  margin: 5px 0;
+  padding: 8px;
+  background-color: #eee;
+}
+
+body.dark .history li {
+  background-color: #333;
+  color: white;
+}
+
+#toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #323232;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.4s ease, bottom 0.4s ease;
+  z-index: 1000;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+#toast.show {
+  opacity: 1;
+  bottom: 40px;
+}
